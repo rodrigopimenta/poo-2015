@@ -1,0 +1,7 @@
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\obj\Debug\TesteRetangulo.csprojResolveAssemblyReference.cache
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\bin\Debug\TesteRetangulo.dll
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\bin\Debug\TesteRetangulo.pdb
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\bin\Debug\poo-paint.exe
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\bin\Debug\poo-paint.pdb
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\obj\Debug\TesteRetangulo.dll
+C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\TesteRetangulo\obj\Debug\TesteRetangulo.pdb
