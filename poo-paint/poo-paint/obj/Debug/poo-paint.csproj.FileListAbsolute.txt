@@ -8,3 +8,11 @@ C:\Users\Thiago\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.cs
 C:\Users\adm\Source\Repos\poo-2015\poo-paint\poo-paint\bin\Debug\poo-paint.exe.config
 C:\Users\adm\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.exe
 C:\Users\adm\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.pdb
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\bin\Debug\poo-paint.exe.config
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.exe
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.pdb
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\bin\Debug\poo-paint.exe
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\bin\Debug\poo-paint.pdb
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.csprojResolveAssemblyReference.cache
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo_paint.AreaDeDesenho.resources
+C:\Users\infoti\Source\Repos\poo-2015\poo-paint\poo-paint\obj\Debug\poo-paint.csproj.GenerateResource.Cache
