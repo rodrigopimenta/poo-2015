@@ -16,6 +16,7 @@ namespace poo_paint
         Figura[] figuras = new Figura[0];
         private int xini;
         private int yini;
+        private int desenhando = 0;
 
         public AreaDeDesenho()
         {
@@ -42,40 +43,29 @@ namespace poo_paint
 
         private void DesenhaCliqueInicial(object sender, MouseEventArgs e)
         {
+            desenhando = 1;
             xini = e.X;
             yini = e.Y;
         }
 
         private void DesenhaCliqueFinal(object sender, MouseEventArgs e)
         {
+            desenhando = 0;
             if (comboxFerramenta.SelectedIndex == 0)
             {
-                if (e.X > xini)
-                {
-                    if (e.Y > yini)
-                    {
-                        AdicionaFigura(new Retangulo(xini, yini, (e.X - xini), (e.Y - yini)));
-                    }
-                    else
-                    {
-                        AdicionaFigura(new Retangulo(xini, e.Y, (e.X - xini), (yini - e.Y)));
-                    }
-                }
-                else
-                {
-                    if (e.Y > yini)
-                    {
-                        AdicionaFigura(new Retangulo(e.X, yini, (xini - e.X), (e.Y - yini)));
-                    }
-                    else
-                    {
-                        AdicionaFigura(new Retangulo(e.X, e.Y, (xini - e.X), (yini - e.Y)));
-                    }
-                }
+                AdicionaFigura(new Retangulo(Math.Min(xini, e.X), Math.Min(yini, e.Y), Math.Abs(e.X - xini), Math.Abs(e.Y - yini)));
             }
-            else
+            else if (comboxFerramenta.SelectedIndex == 1)
             {
-                AdicionaFigura(new Circulo(e.X, e.Y, xini - e.X));
+                int xx = Math.Abs(e.X - xini);
+                int yy = Math.Abs(e.Y - yini);
+                int raio = (int)Math.Sqrt(xx * xx + yy * yy);
+
+                AdicionaFigura(new Circulo(xini - raio, yini - raio, raio));
+            }
+            else if (comboxFerramenta.SelectedIndex == 2)
+            {
+                AdicionaFigura(new Linha(xini, yini, e.X, e.Y));
             }
 
             this.Invalidate();
@@ -85,8 +75,17 @@ namespace poo_paint
         {
             comboxFerramenta.Items.Add("Retangulo");
             comboxFerramenta.Items.Add("Circulo");
+            comboxFerramenta.Items.Add("Linha");
+
             comboxFerramenta.SelectedIndex = 0;
         }
 
+        private void DesenhaArrasta(object sender, MouseEventArgs e)
+        {
+            if (desenhando == 7) //teste..... arrastando
+            {
+                DesenhaCliqueFinal(sender, e);
+            }
+        }
     }
 }

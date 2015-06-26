@@ -33,23 +33,25 @@
             // 
             // comboxFerramenta
             // 
+            this.comboxFerramenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboxFerramenta.FormattingEnabled = true;
-            this.comboxFerramenta.Location = new System.Drawing.Point(65, 35);
+            this.comboxFerramenta.Location = new System.Drawing.Point(0, 0);
             this.comboxFerramenta.Name = "comboxFerramenta";
-            this.comboxFerramenta.Size = new System.Drawing.Size(185, 24);
+            this.comboxFerramenta.Size = new System.Drawing.Size(530, 24);
             this.comboxFerramenta.TabIndex = 0;
             // 
             // AreaDeDesenho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 402);
+            this.ClientSize = new System.Drawing.Size(530, 451);
             this.Controls.Add(this.comboxFerramenta);
             this.Name = "AreaDeDesenho";
             this.Text = "AreaDeDesenho";
             this.Load += new System.EventHandler(this.AreaDeDesenho_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Desenha);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DesenhaCliqueInicial);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DesenhaArrasta);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DesenhaCliqueFinal);
             this.ResumeLayout(false);
 
