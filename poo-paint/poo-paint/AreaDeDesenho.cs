@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace poo_paint
         private int xini;
         private int yini;
         private int desenhando = 0;
+        private string savedesenhos = "";
 
         public AreaDeDesenho()
         {
@@ -38,6 +40,8 @@ namespace poo_paint
                 Figura f = new Figura();
                 f = this.figuras[i];
                 f.Desenha(g);
+                savedesenhos += f.GeraLinhaArquivo();
+                savedesenhos += Environment.NewLine;
             }
         }
 
@@ -87,5 +91,80 @@ namespace poo_paint
                 DesenhaCliqueFinal(sender, e);
             }
         }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string linhaArquivo, caminho = openFileDialog1.FileName;
+                StreamReader stream = new StreamReader(caminho);
+                int p1, p2, p3, p4;
+                try
+                {
+                    figuras = new Figura[0];
+                    qtdfiguras = 0;
+                    while ((linhaArquivo = stream.ReadLine()) != null)
+                    {
+                        switch (linhaArquivo)
+                        {
+                            case "Retangulo":
+                                p1 = Convert.ToInt32(stream.ReadLine());
+                                p2 = Convert.ToInt32(stream.ReadLine());
+                                p3 = Convert.ToInt32(stream.ReadLine());
+                                p4 = Convert.ToInt32(stream.ReadLine());
+                                AdicionaFigura(new Retangulo(p1, p2, p3, p4));
+                                break;
+                            case "Circulo":
+                                p1 = Convert.ToInt32(stream.ReadLine());
+                                p2 = Convert.ToInt32(stream.ReadLine());
+                                p3 = Convert.ToInt32(stream.ReadLine());
+                                AdicionaFigura(new Circulo(p1, p2, p3));
+                                break;
+                            case "Linha":
+                                p1 = Convert.ToInt32(stream.ReadLine());
+                                p2 = Convert.ToInt32(stream.ReadLine());
+                                p3 = Convert.ToInt32(stream.ReadLine());
+                                p4 = Convert.ToInt32(stream.ReadLine());
+                                AdicionaFigura(new Linha(p1, p2, p3, p4));
+                                break;
+                            default:
+                                throw new Exception();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("O arquivo selecionado é inválido.", "Erro");
+                }
+                finally
+                {
+                    this.Invalidate();
+                    stream.Close();
+                }
+            }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+            
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string caminho = saveFileDialog1.FileName;
+                StreamWriter stream = new StreamWriter(File.Create(caminho));
+                stream.Write(savedesenhos);
+                stream.Dispose();
+            }
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
     }
 }
